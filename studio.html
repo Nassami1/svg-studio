@@ -382,8 +382,27 @@ tailwind.config = {
             <option value="gear">Industrial Gear</option>
             <option value="star">Radiant Star</option>
             <option value="gem">Diamond Gem</option>
+            <optgroup label="Web3">
+              <option value="chain">Blockchain Chain</option>
+              <option value="coin">Crypto Coin</option>
+              <option value="wallet">Crypto Wallet</option>
+              <option value="nodes">Decentralized Network</option>
+              <option value="cube">Metaverse Cube</option>
+              <option value="contract">Smart Contract</option>
+              <option value="chart">DeFi Chart</option>
+              <option value="nft">NFT Token</option>
+            </optgroup>
+            <optgroup label="Product &amp; Lifestyle">
+              <option value="shop">Store / Shop</option>
+              <option value="bag">Shopping Bag</option>
+              <option value="food">Food / Restaurant</option>
+              <option value="car">Car / Mobility</option>
+              <option value="home">Home / Real Estate</option>
+              <option value="music">Music / Audio</option>
+            </optgroup>
             <option value="custom_svg">Custom SVG Code (&lt;g&gt; / &lt;path&gt;)...</option>
           </select>
+          <div id="icon-suggestions" class="mt-2 flex flex-wrap gap-1.5 text-[11px]"></div>
         </div>
 
         <!-- Palette Select -->
@@ -400,7 +419,24 @@ tailwind.config = {
             <option value="6">Sunset Horizon (Violet to Orange)</option>
             <option value="7">Deep Ocean Azure</option>
             <option value="8">Soft Rose Gold</option>
+            <optgroup label="Matte &amp; Simple">
+              <option value="9">Matte Slate</option>
+              <option value="10">Matte Sage</option>
+              <option value="11">Matte Clay</option>
+              <option value="12">Matte Sand</option>
+              <option value="13">Matte Navy</option>
+              <option value="14">Matte Teal</option>
+            </optgroup>
             <option value="custom">Custom Color Picker + Harmony AI...</option>
+          </select>
+        </div>
+
+        <!-- Design Style: Gradient / Flat 2D -->
+        <div>
+          <label id="ui-lbl-style" class="block text-xs text-slate-300 mb-1.5 font-medium">Design Style</label>
+          <select id="style_mode" onchange="draw()" class="w-full bg-dark-900 border border-dark-600 focus:border-pink-500 text-white rounded-xl px-3 py-2.5 text-sm outline-none">
+            <option value="gradient">Gradient / 3D (current)</option>
+            <option value="flat">Flat 2D — solid, no gradient / glow / shadow</option>
           </select>
         </div>
 
@@ -839,6 +875,103 @@ const ICONS = {
           <path d="M-58,-20 L58,-20 M-20,-58 L-8,-20 L0,66 M20,-58 L8,-20 L0,66" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
           <polygon points="-58,-20 58,-20 20,-58 -20,-58" fill="#fff" opacity=".25"/>`
   },
+  chain: {
+    name: 'Blockchain Chain',
+    svg: `<rect x="-78" y="-30" width="54" height="60" rx="12" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <rect x="-27" y="-30" width="54" height="60" rx="12" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <rect x="24" y="-30" width="54" height="60" rx="12" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <circle cx="-51" cy="0" r="7" fill="#fff"/><circle cx="0" cy="0" r="7" fill="#fff"/><circle cx="51" cy="0" r="7" fill="#fff"/>`
+  },
+  coin: {
+    name: 'Crypto Coin',
+    svg: `<circle cx="0" cy="0" r="70" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <circle cx="0" cy="0" r="48" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/>
+          <path d="M-16,-30 L4,-30 A15,15 0 0,1 4,0 L-16,0 M-16,0 L8,0 A15,15 0 0,1 8,30 L-16,30" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="-16" y1="-30" x2="-16" y2="30" stroke="#fff" stroke-width="10" stroke-linecap="round"/>`
+  },
+  wallet: {
+    name: 'Crypto Wallet',
+    svg: `<rect x="-48" y="-70" width="96" height="30" rx="9" fill="ICON" stroke="#fff" stroke-width="5"/>
+          <rect x="-68" y="-46" width="136" height="98" rx="18" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <rect x="-68" y="-46" width="136" height="30" rx="15" fill="#fff" opacity=".22"/>
+          <circle cx="38" cy="20" r="15" fill="#fff"/><circle cx="38" cy="20" r="7" fill="ICON"/>`
+  },
+  nodes: {
+    name: 'Decentralized Network',
+    svg: `<g stroke="#fff" stroke-width="4" opacity=".85"><line x1="0" y1="0" x2="-52" y2="-44"/><line x1="0" y1="0" x2="52" y2="-44"/><line x1="0" y1="0" x2="-52" y2="44"/><line x1="0" y1="0" x2="52" y2="44"/><line x1="-52" y1="-44" x2="52" y2="-44"/><line x1="-52" y1="44" x2="52" y2="44"/></g>
+          <g fill="url(#g)" stroke="#fff" stroke-width="4"><circle cx="-52" cy="-44" r="16"/><circle cx="52" cy="-44" r="16"/><circle cx="-52" cy="44" r="16"/><circle cx="52" cy="44" r="16"/></g>
+          <circle cx="0" cy="0" r="20" fill="ICON" stroke="#fff" stroke-width="4"/>`
+  },
+  cube: {
+    name: 'Metaverse Cube',
+    svg: `<polygon points="0,-72 62,-36 62,36 0,72 -62,36 -62,-36" fill="url(#g)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <polygon points="0,-72 62,-36 0,0 -62,-36" fill="#fff" opacity=".22"/>
+          <path d="M0,-72 L0,0 L62,36 M0,0 L-62,36 M0,0 L0,72" fill="none" stroke="#fff" stroke-width="4"/>`
+  },
+  contract: {
+    name: 'Smart Contract',
+    svg: `<rect x="-56" y="-72" width="112" height="144" rx="16" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <path d="M-32,-36 L32,-36 M-32,-12 L32,-12 M-32,12 L8,12" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="28" cy="38" r="22" fill="ICON" stroke="#fff" stroke-width="4"/>
+          <path d="M18,38 L25,45 L39,30" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`
+  },
+  chart: {
+    name: 'DeFi Chart',
+    svg: `<polygon points="-56,30 -24,6 4,18 36,-22 62,-38 62,62 -56,62" fill="url(#g)" opacity=".25"/>
+          <path d="M-68,62 L-68,-62 M-68,62 L68,62" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <polyline points="-56,30 -24,6 4,18 36,-22 62,-38" fill="none" stroke="ICON" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="62,-38 42,-38 62,-18" fill="ICON"/>
+          <circle cx="-56" cy="30" r="7" fill="#fff"/><circle cx="-24" cy="6" r="7" fill="#fff"/><circle cx="36" cy="-22" r="7" fill="#fff"/>`
+  },
+  nft: {
+    name: 'NFT Token',
+    svg: `<rect x="-62" y="-62" width="124" height="124" rx="18" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <polygon points="0,-38 28,-10 0,38 -28,-10" fill="#fff" opacity=".92"/>
+          <path d="M-28,-10 L28,-10 M-14,-38 L-6,-10 L0,38 M14,-38 L6,-10 L0,38" fill="none" stroke="ICON" stroke-width="4" stroke-linejoin="round"/>`
+  },
+  shop: {
+    name: 'Store / Shop',
+    svg: `<polygon points="-70,-20 70,-20 60,-62 -60,-62" fill="url(#g)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <line x1="-35" y1="-62" x2="-38" y2="-20" stroke="#fff" stroke-width="4"/><line x1="0" y1="-62" x2="0" y2="-20" stroke="#fff" stroke-width="4"/><line x1="35" y1="-62" x2="38" y2="-20" stroke="#fff" stroke-width="4"/>
+          <rect x="-56" y="-20" width="112" height="78" rx="10" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <rect x="-14" y="6" width="28" height="52" rx="6" fill="#fff" opacity=".9"/>`
+  },
+  bag: {
+    name: 'Shopping Bag',
+    svg: `<path d="M-36,-12 C-36,-52 -18,-66 0,-66 C18,-66 36,-52 36,-12" fill="none" stroke="ICON" stroke-width="10" stroke-linecap="round"/>
+          <path d="M-56,-12 L-48,62 L48,62 L56,-12 Z" fill="url(#g)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <rect x="-56" y="-20" width="112" height="14" rx="7" fill="#fff" opacity=".9"/>
+          <circle cx="0" cy="22" r="14" fill="#fff"/><circle cx="0" cy="22" r="7" fill="ICON"/>`
+  },
+  food: {
+    name: 'Food / Restaurant',
+    svg: `<path d="M-66,28 C-66,-28 66,-28 66,28 Z" fill="url(#g)" stroke="#fff" stroke-width="5"/>
+          <line x1="-76" y1="28" x2="76" y2="28" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="0" cy="-44" r="9" fill="ICON" stroke="#fff" stroke-width="4"/>
+          <line x1="0" y1="-35" x2="0" y2="-26" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <rect x="-76" y="40" width="152" height="12" rx="6" fill="#fff" opacity=".85"/>`
+  },
+  car: {
+    name: 'Car / Mobility',
+    svg: `<path d="M-72,22 L-68,-6 L-44,-34 L36,-34 L58,-6 L72,10 L72,30 L-72,30 Z" fill="url(#g)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M-36,-26 L-18,-8 L18,-8 L36,-26" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="-38" cy="32" r="16" fill="#0F131F" stroke="#fff" stroke-width="5"/><circle cx="-38" cy="32" r="6" fill="#fff"/>
+          <circle cx="38" cy="32" r="16" fill="#0F131F" stroke="#fff" stroke-width="5"/><circle cx="38" cy="32" r="6" fill="#fff"/>`
+  },
+  home: {
+    name: 'Home / Real Estate',
+    svg: `<polygon points="0,-70 68,-6 52,-6 52,62 -52,62 -52,-6 -68,-6" fill="url(#g)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <polygon points="0,-70 68,-6 -68,-6" fill="#fff" opacity=".18"/>
+          <rect x="-18" y="18" width="36" height="44" rx="6" fill="#fff" opacity=".9"/>`
+  },
+  music: {
+    name: 'Music / Audio',
+    svg: `<ellipse cx="-28" cy="38" rx="20" ry="14" fill="url(#g)" stroke="#fff" stroke-width="5" transform="rotate(-20 -28 38)"/>
+          <ellipse cx="42" cy="22" rx="20" ry="14" fill="url(#g)" stroke="#fff" stroke-width="5" transform="rotate(-20 42 22)"/>
+          <line x1="-12" y1="32" x2="-12" y2="-48" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <line x1="58" y1="16" x2="58" y2="-64" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <line x1="-12" y1="-48" x2="58" y2="-64" stroke="ICON" stroke-width="10" stroke-linecap="round"/>`
+  },
   custom_svg: {
     name: 'Custom SVG',
     svg: ''
@@ -921,41 +1054,146 @@ const PALS = [
   { name: 'Cyberpunk Purple', bg1: '#0D061A', bg2: '#210B38', ac: ['#00F0FF', '#9D4EDD', '#FF007F', '#7B2CBF'] },
   { name: 'Sunset Glow', bg1: '#140A1C', bg2: '#2B1126', ac: ['#FF9E00', '#FF0055', '#FF5400', '#FFBD00'] },
   { name: 'Deep Ocean', bg1: '#040D21', bg2: '#0B214A', ac: ['#48CAE4', '#0077B6', '#00B4D8', '#90E0EF'] },
-  { name: 'Rose Gold', bg1: '#1A0F14', bg2: '#2E1A23', ac: ['#FFE5EC', '#FF8FAB', '#FB6F92', '#FFB3C6'] }
+  { name: 'Rose Gold', bg1: '#1A0F14', bg2: '#2E1A23', ac: ['#FFE5EC', '#FF8FAB', '#FB6F92', '#FFB3C6'] },
+  // --- Matte & simple: muted, low-saturation accents, near-solid gradients ---
+  { name: 'Matte Slate', bg1: '#23272E', bg2: '#1B1E24', ac: ['#CBD5E1', '#7C8594', '#9AA3AF', '#5B636E'] },
+  { name: 'Matte Sage', bg1: '#22271F', bg2: '#1A1E18', ac: ['#C2CDB8', '#7E8F76', '#93A48A', '#5F6D57'] },
+  { name: 'Matte Clay', bg1: '#2A2320', bg2: '#1F1A17', ac: ['#D8B9A5', '#9C7260', '#B98A73', '#7A5546'] },
+  { name: 'Matte Sand', bg1: '#26241F', bg2: '#1C1A16', ac: ['#DDD3B8', '#97896B', '#B3A586', '#776E52'] },
+  { name: 'Matte Navy', bg1: '#20242E', bg2: '#181B23', ac: ['#B6C2D8', '#6E7E9C', '#8B9BB8', '#525F77'] },
+  { name: 'Matte Teal', bg1: '#1F2626', bg2: '#171D1D', ac: ['#B9CCC6', '#66867D', '#7FA39B', '#4E6A62'] }
 ];
 
 // ==================== SMART DETECTION ENGINE ====================
+// ==================== SMART PARSER v2 — scoring registry ====================
+// How to add icon #35+: 1) add its SVG to ICONS above, 2) add one <option>
+// in the #icon select, 3) add one line below with its EN + FA keywords.
+// Nothing else needs to change — guessIcon() scores every icon the same way.
+const ICON_KEYWORDS = {
+  stop: ['stop', 'octagon', 'power', 'ایست', 'توقف', 'هشت ضلعی', 'پاور', 'توقفگاه'],
+  bolt: ['bolt', 'lightning', 'energy', 'voltage', 'برق', 'انرژی', 'صاعقه', 'آذرخش', 'ولتاژ', 'شارژ', 'charge'],
+  orbit: ['orbit', 'planet', 'satellite', 'space', 'omni', 'مدار', 'سیاره', 'ماهواره', 'فضا', 'حلقه مداری'],
+  hex: ['hex', 'hexagon', 'honey', 'کندو', 'شش ضلعی', 'هگزاگون', 'بلوک'],
+  drop: ['drop', 'water', 'aqua', 'liquid', 'قطره', 'آب', 'مایع', 'هیدرو'],
+  wave: ['wave', 'sea', 'ocean', 'موج', 'دریا', 'اقیانوس', 'جریان'],
+  shield: ['shield', 'security', 'guard', 'سپر', 'امنیت', 'گارد', 'حفاظت', 'سایبر', 'امن', 'محافظ'],
+  flame: ['flame', 'fire', 'آتش', 'شعله', 'حرارت', 'داغ', 'گرما'],
+  leaf: ['leaf', 'tree', 'eco', 'bio', 'organic', 'برگ', 'طبیعت', 'گیاه', 'سبز', 'ارگانیک', 'محیط زیست'],
+  crown: ['crown', 'royal', 'king', 'luxury', 'تاج', 'پادشاه', 'لوکس', 'سلطنتی', 'پادشاهی'],
+  rocket: ['rocket', 'startup', 'launch', 'aero', 'موشک', 'فضاپیما', 'پرتاب', 'استارتاپ', 'استارت آپ'],
+  brain: ['brain', 'neural', 'neural network', 'ai', 'smart', 'هوش', 'مغز', 'عصبی', 'شبکه عصبی', 'هوش مصنوعی', 'پرداز', 'یادگیری ماشین', 'machine learning'],
+  code: ['code', 'dev', 'developer', 'programming', 'کد', 'برنامه', 'توسعه', 'سایت', 'وب', 'برنامه نویسی', 'نرم افزار', 'software'],
+  heart: ['heart', 'health', 'love', 'medical', 'قلب', 'سلامت', 'پزشکی', 'عشق', 'سلامتی', 'درمان'],
+  coffee: ['coffee', 'cafe', 'roast', 'قهوه', 'کافه', 'فنجان', 'کافی شاپ'],
+  mountain: ['mountain', 'peak', 'climb', 'کوه', 'قله', 'صعود', 'کوهنوردی'],
+  infinity: ['infinity', 'loop', 'endless', 'بی نهایت', 'بینهایت', 'ابدی', 'بی پایان'],
+  gear: ['gear', 'cog', 'engineer', 'industrial', 'چرخ', 'صنعت', 'مهندس', 'فنی', 'مکانیک', 'تولید'],
+  star: ['star', 'sparkle', 'shine', 'ستاره', 'درخشش', 'براق'],
+  gem: ['gem', 'diamond', 'jewel', 'الماس', 'جواهر', 'نگین', 'طلا و جواهر'],
+  // --- Web3 ---
+  chain: ['blockchain', 'chain', 'block', 'ledger', 'web3', 'بلاکچین', 'بلاک چین', 'زنجیره', 'بلاک', 'دفتر کل', 'وب۳', 'وب 3', 'زنجیره بلوکی'],
+  coin: ['coin', 'crypto', 'bitcoin', 'btc', 'token', 'exchange', 'سکه', 'کریپتو', 'رمزارز', 'ارز دیجیتال', 'بیت کوین', 'توکن', 'صرافی', 'ارز'],
+  wallet: ['wallet', 'crypto wallet', 'pay', 'payment', 'payments', 'کیف پول', 'کیف‌پول', 'پرداخت', 'پرداخت آنلاین', 'کیف پول دیجیتال'],
+  nodes: ['decentralized', 'network', 'nodes', 'node', 'peer', 'p2p', 'distributed', 'dao', 'غیرمتمرکز', 'شبکه', 'گره', 'توزیع شده', 'دائو', 'انجمن'],
+  cube: ['metaverse', 'cube', 'vr', 'ar', 'virtual', 'avatar', 'متاورس', 'مکعب', 'سه بعدی', 'واقعیت مجازی', 'واقعیت افزوده', 'مجازی', 'آواتار'],
+  contract: ['smart contract', 'contract', 'agreement', 'legal', 'law', 'قرارداد هوشمند', 'قرارداد', 'توافق', 'حقوقی', 'قانون', 'سند', 'امضا'],
+  chart: ['defi', 'chart', 'finance', 'invest', 'investment', 'stock', 'trading', 'profit', 'growth', 'دیفای', 'نمودار', 'مالی', 'سرمایه', 'سرمایه گذاری', 'سهام', 'ترید', 'معامله', 'سود', 'رشد', 'بورس'],
+  nft: ['nft', 'collectible', 'digital art', 'mint', 'opensea', 'ان اف تی', 'توکن غیرمثلی', 'کلکسیونی', 'هنر دیجیتال', 'مینت'],
+  // --- Product & lifestyle ---
+  shop: ['shop', 'store', 'market', 'retail', 'ecommerce', 'online shop', 'online store', 'فروشگاه', 'مغازه', 'فروش', 'مارکت', 'بازار', 'خرده فروشی', 'فروشگاه آنلاین', 'فروشگاه اینترنتی', 'تجارت الکترونیک'],
+  bag: ['bag', 'shopping bag', 'purse', 'buy', 'کیف', 'کیف خرید', 'خرید', 'ساک'],
+  food: ['food', 'restaurant', 'catering', 'fast food', 'pizza', 'burger', 'cooking', 'chef', 'snack', 'غذا', 'رستوران', 'فست فود', 'پیتزا', 'برگر', 'آشپزی', 'آشپز', 'اسنک', 'خوراک'],
+  car: ['car', 'auto', 'automotive', 'taxi', 'mobility', 'rent a car', 'خودرو', 'ماشین', 'تاکسی', 'اجاره خودرو', 'حمل و نقل', 'خودرویی'],
+  home: ['home', 'real estate', 'apartment', 'villa', 'property', 'خانه', 'املاک', 'ملک', 'آپارتمان', 'ویلا', 'مسکن'],
+  music: ['music', 'song', 'audio', 'podcast', 'melody', 'dj', 'موسیقی', 'آهنگ', 'صوتی', 'پادکست', 'ملودی', 'دی جی']
+};
+
+// Persian / Arabic normalisation so «می‌شود», «بی‌نهایت» and «کیف‌پول»
+// match their keywords even with ZWNJ, Arabic Yeh/Kaf or different spacing.
+function normalizeText(s) {
+  return (s || '').toLowerCase()
+    .replace(/[ي]/g, 'ی').replace(/[ك]/g, 'ک').replace(/ة/g, 'ه')
+    .replace(/[ـ\u200c\u200d\u200e\u200f]/g, '')
+    .replace(/[^a-z0-9\u0600-\u06ff\s]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+
+function keywordWeight(kw) {
+  if (kw.indexOf(' ') !== -1) return 6;      // multi-word phrase, e.g. 'smart contract'
+  if (kw.length <= 2) return 5;              // ai, vr, nft, btc — whole-word only
+  if (kw.length >= 6) return 4;
+  return 3;
+}
+
+function keywordMatches(text, kw) {
+  const k = normalizeText(kw);
+  if (!k) return false;
+  // Latin single words need word boundaries: 'ai' must not match 'said',
+  // 'web' must not match 'web3', 'car' must not match 'card'.
+  if (/^[a-z0-9]+$/.test(k)) {
+    return new RegExp('(^|\\s)' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es)?(\\s|$)').test(' ' + text + ' ');
+  }
+  return text.indexOf(k) !== -1;             // Persian / phrases: substring is fine
+}
+
+function scoreIcons(text) {
+  const t = normalizeText(text);
+  if (!t) return [];
+  return Object.keys(ICON_KEYWORDS).map(function(id) {
+    let score = 0, hits = [];
+    ICON_KEYWORDS[id].forEach(function(kw) {
+      if (keywordMatches(t, kw)) { score += keywordWeight(kw); hits.push(kw); }
+    });
+    return { id: id, name: (ICONS[id] || {}).name || id, score: score, hits: hits };
+  }).filter(function(r) { return r.score > 0; })
+    .sort(function(a, b) { return b.score - a.score || Object.keys(ICONS).indexOf(a.id) - Object.keys(ICONS).indexOf(b.id); });
+}
+
+// Ranked Top-3, e.g. [{id:'coin', name:'Crypto Coin', score:10, confidence:'high'}]
+function guessIconTop(d, n) {
+  const ranked = scoreIcons(d).slice(0, n || 3);
+  return ranked.map(function(r) {
+    r.confidence = r.score >= 10 ? 'high' : (r.score >= 5 ? 'medium' : 'low');
+    return r;
+  });
+}
+
+// Backwards-compatible: still returns a single icon id.
+// No match any more falls back to a neutral Star (was: a hash-picked random icon).
 function guessIcon(d) {
-  d = (d || '').toLowerCase();
-  if (/stop|ایست|توقف|octagon|power|پاور/.test(d)) return 'stop';
-  if (/rocket|موشک|فضاپیما|پرتاب|استارتاپ|startup|aero/.test(d)) return 'rocket';
-  if (/brain|ai|هوش|مغز|عصبی|neural|smart|پرداز/.test(d)) return 'brain';
-  if (/shield|سپر|امنیت|گارد|حفاظت|سایبر|guard|security/.test(d)) return 'shield';
-  if (/crown|تاج|پادشاه|لوکس|royal|king|luxury/.test(d)) return 'crown';
-  if (/coffee|قهوه|کافه|فنجان|cafe|roast/.test(d)) return 'coffee';
-  if (/flame|fire|آتش|شعله|حرارت|داغ/.test(d)) return 'flame';
-  if (/leaf|tree|برگ|طبیعت|گیاه|سبز|eco|bio/.test(d)) return 'leaf';
-  if (/code|dev|کد|برنامه|توسعه|سایت|وب/.test(d)) return 'code';
-  if (/heart|health|قلب|سلامت|پزشکی|عشق/.test(d)) return 'heart';
-  if (/mountain|peak|کوه|قله|صعود/.test(d)) return 'mountain';
-  if (/gem|diamond|الماس|جواهر|نگین/.test(d)) return 'gem';
-  if (/infinity|بی‌نهایت|بینهایت|ابدی|loop/.test(d)) return 'infinity';
-  if (/gear|cog|چرخ|صنعت|مهندس|فنی/.test(d)) return 'gear';
-  if (/bolt|برق|انرژی|energy|صاعقه|lightning|آذرخش|voltage/.test(d)) return 'bolt';
-  if (/drop|قطره|water|آب|aqua/.test(d)) return 'drop';
-  if (/wave|موج|sea|دریا|اقیانوس/.test(d)) return 'wave';
-  if (/hex|کندو|شش|honey|بلوک/.test(d)) return 'hex';
-  if (/orbit|مدار|satellite|ماهواره|omni|سیاره/.test(d)) return 'orbit';
-  if (/star|ستاره|درخشش/.test(d)) return 'star';
-  
-  let h = 0;
-  for (let i = 0; i < d.length; i++) h += d.charCodeAt(i);
-  const keys = Object.keys(ICONS);
-  return keys[h % keys.length];
+  const top = guessIconTop(d, 1);
+  return top.length ? top[0].id : 'star';
+}
+
+function pickIconSuggestion(id) {
+  const sel = document.getElementById('icon');
+  if (sel && ICONS[id]) { sel.value = id; draw(); }
+}
+
+function renderIconSuggestions(fullText) {
+  const box = document.getElementById('icon-suggestions');
+  if (!box) return;
+  const isAuto = document.getElementById('icon').value === 'auto';
+  if (!isAuto) { box.innerHTML = ''; return; }
+  const top = guessIconTop(fullText, 3);
+  const fa = (typeof currentLang !== 'undefined' && currentLang === 'fa');
+  if (!top.length) {
+    box.innerHTML = fa
+      ? `<span class="text-slate-500">تطابقی پیدا نشد — ستاره خنثی نمایش داده می‌شود. کلماتی مثل «کیف پول»، «فروشگاه» یا «قرارداد هوشمند» را امتحان کنید.</span>`
+      : `<span class="text-slate-500">No keyword match — showing neutral Star. Try words like “crypto wallet”, “فروشگاه” or “قرارداد هوشمند”.</span>`;
+    return;
+  }
+  box.innerHTML = `<span class="text-slate-400 self-center">${fa ? 'پیشنهادها:' : 'Suggestions:'}</span>` + top.map(function(r, i) {
+    const conf = r.confidence === 'high' ? 'text-emerald-300 border-emerald-500/40' : (r.confidence === 'medium' ? 'text-amber-300 border-amber-500/40' : 'text-slate-300 border-dark-600');
+    return `<button type="button" onclick="pickIconSuggestion('${r.id}')" class="px-2 py-1 rounded-lg border bg-dark-900 hover:bg-dark-700 transition ${conf}" title="Score ${r.score} — matched: ${r.hits.join(', ')}">${i + 1}. ${r.name} · ${r.score}</button>`;
+  }).join('');
 }
 
 function guessPal(d) {
   d = (d || '').toLowerCase();
+  if (/سفال|clay/.test(d)) return 11;
+  if (/شنی|ماسه|sand/.test(d)) return 12;
+  if (/مات|matte|flat|تخت|ساده|مینیمال|minimal/.test(d)) return 9;
   if (/بنفش|نئون|سایبر|purple|neon|cyber|pink/.test(d)) return 5;
   if (/رزگلد|صورتی|rose/.test(d)) return 8;
   if (/آبی|blue|cyan|فیروز/.test(d)) return 1;
@@ -973,7 +1211,8 @@ function guessFont(brand, desc, ik) {
   const d = (desc || '').toLowerCase();
   if (ik === 'crown' || ik === 'gem' || /luxury|royal|classic|watch|geneve/.test(d)) return 'cinzel';
   if (ik === 'code' || /code|dev|cyber|terminal|security/.test(d)) return 'mono';
-  if (ik === 'orbit' || ik === 'rocket' || ik === 'stop' || /sci-fi|future|space|omni/.test(d)) return 'orbitron';
+  if (ik === 'orbit' || ik === 'rocket' || ik === 'stop' || ik === 'cube' || /sci-fi|future|space|omni|metaverse|web3/.test(d)) return 'orbitron';
+  if (ik === 'chain' || ik === 'coin' || ik === 'wallet' || ik === 'nodes' || ik === 'contract' || ik === 'chart' || ik === 'nft' || /blockchain|crypto|defi|nft/.test(d)) return 'mono';
   if (ik === 'bolt' || ik === 'flame' || /voltage|power|fast|sport/.test(d)) return 'bebas';
   if (ik === 'brain' || ik === 'hex' || /ai|neural|tech|startup/.test(d)) return 'space';
   if (ik === 'coffee' || ik === 'leaf' || /editorial|artisan|organic/.test(d)) return 'playfair';
@@ -986,7 +1225,7 @@ function guessDecorations(d) {
     orbit: /مدار|حلقه|orbit|ring|سیاره/.test(d),
     speed: /سرعت|خطوط|شتاب|speed|fast|خط/.test(d),
     sparkles: /ستاره|درخش|نور|الماس|لوکس|spark|star|shine/.test(d),
-    grid: /شبکه|هوش|سایبر|تکنولوژی|کد|grid|tech|matrix/.test(d)
+    grid: /شبکه|هوش|سایبر|تکنولوژی|کد|بلاکچین|کریپتو|grid|tech|matrix|blockchain|crypto|web3/.test(d)
   };
 }
 
@@ -1053,7 +1292,9 @@ function syncBgToggle() {
 }
 
 // ==================== TYPOGRAPHIC RENDERER ====================
-function renderTypography({ brand, tagline, tx, ty, tAnchor, fontObj, fontSize, tracking, textCase, typoStyle, textPathMode, ix, iy, fg, subFg, P, isLight }) {
+function renderTypography({
+  brand, tagline, tx, ty, tAnchor, fontObj, fontSize, tracking, textCase, typoStyle, textPathMode, ix, iy, fg, subFg, P, isLight, isFlat }) {
+  if (isFlat && (typoStyle === 'shadow3d' || typoStyle === 'multishadow')) typoStyle = 'solid';
   let displayBrand = brand;
   let fontStyle = 'normal';
   if (!isFa(brand)) {
@@ -1155,7 +1396,7 @@ function renderTypography({ brand, tagline, tx, ty, tAnchor, fontObj, fontSize, 
 
   } else if (typoStyle === 'outline') {
     mainTextSvg = `
-      <text x="${tx}" y="${ty}" ${commonAttrs} fill="none" stroke="url(#g)" stroke-width="6" stroke-linejoin="round" opacity="0.45" filter="url(#dropShadow)">${esc(displayBrand)}</text>
+      <text x="${tx}" y="${ty}" ${commonAttrs} fill="none" stroke="url(#g)" stroke-width="6" stroke-linejoin="round" opacity="0.45"${isFlat ? '' : ' filter="url(#dropShadow)"'}>${esc(displayBrand)}</text>
       <text x="${tx}" y="${ty}" ${commonAttrs} fill="none" stroke="url(#g)" stroke-width="2.8" stroke-linejoin="round">${esc(displayBrand)}</text>
     `;
     decorBarSvg = `<rect x="${barX}" y="${barY}" width="${barWidth}" height="4" rx="2" fill="url(#g)"/>`;
@@ -1191,7 +1432,7 @@ function renderTypography({ brand, tagline, tx, ty, tAnchor, fontObj, fontSize, 
     const boxY = ty - fontSize * 0.86;
     const boxH = fontSize * 1.12;
     mainTextSvg = `
-      <rect x="${boxX}" y="${boxY}" width="${estWidth}" height="${boxH}" rx="16" fill="url(#g)" filter="url(#dropShadow)"/>
+      <rect x="${boxX}" y="${boxY}" width="${estWidth}" height="${boxH}" rx="16" fill="url(#g)"${isFlat ? '' : ' filter="url(#dropShadow)"'}/>
       <text x="${tx}" y="${ty}" ${commonAttrs} fill="#FFFFFF">${esc(displayBrand)}</text>
     `;
 
@@ -1236,6 +1477,12 @@ function build(overrideLayout = null, forceNoBg = false) {
     customSvgBox.classList.add('hidden');
     if (ik === 'auto') ik = guessIcon(fullText);
   }
+
+  renderIconSuggestions(fullText);
+
+  // 1b. Design style: Flat 2D kills gradients, glow and shadows (any palette).
+  const styleModeEl = document.getElementById('style_mode');
+  const isFlat = !!(styleModeEl && styleModeEl.value === 'flat');
 
   // 2. Palette
   const palVal = document.getElementById('pal').value;
@@ -1436,7 +1683,7 @@ function build(overrideLayout = null, forceNoBg = false) {
   let textBlock = '';
   if (showText) {
     textBlock = `<g opacity="${opText}">` + renderTypography({
-      brand, tagline, tx, ty, tAnchor, fontObj, fontSize, tracking, textCase, typoStyle, textPathMode, ix, iy, fg, subFg, P, isLight
+      brand, tagline, tx, ty, tAnchor, fontObj, fontSize, tracking, textCase, typoStyle, textPathMode, ix, iy, fg, subFg, P, isLight, isFlat
     }) + `</g>`;
   }
 
@@ -1447,9 +1694,9 @@ function build(overrideLayout = null, forceNoBg = false) {
     : '';
 
   const glowPulseTag = animPulse ? `<animate attributeName="rx" values="250;295;250" dur="3s" repeatCount="indefinite"/><animate attributeName="ry" values="230;275;230" dur="3s" repeatCount="indefinite"/>` : '';
-  const glowEl = hasGlow ? `<ellipse cx="${ix}" cy="${iy}" rx="250" ry="230" fill="url(#gl)">${glowPulseTag}</ellipse>` : '';
+  const glowEl = (hasGlow && !isFlat) ? `<ellipse cx="${ix}" cy="${iy}" rx="250" ry="230" fill="url(#gl)">${glowPulseTag}</ellipse>` : '';
 
-  const iconMasterNode = `<g transform="translate(${ix},${iy}) scale(${finalScale})" filter="url(#dropShadow)">${combinedIconGroup}</g>`;
+  const iconMasterNode = `<g transform="translate(${ix},${iy}) scale(${finalScale})"${isFlat ? '' : ' filter="url(#dropShadow)"'}>${combinedIconGroup}</g>`;
 
   const mainBody = layerOrder === 'text_behind'
     ? `${textBlock}\n  ${iconMasterNode}`
@@ -1459,13 +1706,13 @@ function build(overrideLayout = null, forceNoBg = false) {
   <defs>
     ${fontImportStyle}
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${P.ac[0]}"/>
+      <stop offset="0%" stop-color="${isFlat ? P.ac[2] : P.ac[0]}"/>
       <stop offset="50%" stop-color="${P.ac[2]}"/>
-      <stop offset="100%" stop-color="${P.ac[3]}"/>
+      <stop offset="100%" stop-color="${isFlat ? P.ac[2] : P.ac[3]}"/>
     </linearGradient>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${P.bg1}"/>
-      <stop offset="100%" stop-color="${P.bg2 || '#05070B'}"/>
+      <stop offset="100%" stop-color="${isFlat ? P.bg1 : (P.bg2 || '#05070B')}"/>
     </linearGradient>
     <radialGradient id="gl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="${P.ac[2]}" stop-opacity="${isLight ? '0.22' : '0.42'}"/>
@@ -1480,7 +1727,7 @@ function build(overrideLayout = null, forceNoBg = false) {
   ${mainBody}
 </svg>`;
 
-  return { svg, bgMode, isTransparent, isLight, P, brand, tagline };
+  return { svg, bgMode, isTransparent, isLight, isFlat, P, brand, tagline };
 }
 
 let currentMockup = 'card';
@@ -1657,7 +1904,8 @@ function randomize() {
   const typoStyles = ['solid', 'gradient', 'split', 'outline', 'shadow3d', 'stamp', 'brackets', 'minimal_line'];
   const frames = ['none', 'circle', 'hex', 'octagon', 'shield'];
   
-  document.getElementById('icon').value = iconKeys[Math.floor(Math.random() * iconKeys.length)];
+  const drawableIcons = iconKeys.filter(function(k) { return k !== 'custom_svg'; });
+  document.getElementById('icon').value = drawableIcons[Math.floor(Math.random() * drawableIcons.length)];
   document.getElementById('pal').value = String(Math.floor(Math.random() * PALS.length));
   document.getElementById('font_family').value = fontKeys[Math.floor(Math.random() * fontKeys.length)];
   document.getElementById('typo_style').value = typoStyles[Math.floor(Math.random() * typoStyles.length)];
@@ -1675,6 +1923,7 @@ function randomize() {
 
 function resetDefaults() {
   applyPreset('OmniStop', 'POWER & CONTROL', 'Red stop sign with power button, orbit ring and speed lines', 'orbitron', 'split');
+  document.getElementById('style_mode').value = 'gradient';
   document.getElementById('layout').value = 'vertical';
   document.getElementById('bg').value = 'dark';
   document.getElementById('text_case').value = 'original';
@@ -1768,6 +2017,7 @@ function saveToHistory() {
     layout: document.getElementById('layout').value,
     bg: document.getElementById('bg').value,
     frame: document.getElementById('frame').value,
+    style_mode: document.getElementById('style_mode').value,
     svg: build().svg
   };
   savedDesigns.unshift(state);
@@ -1789,6 +2039,7 @@ function loadFromHistory(idx) {
   document.getElementById('layout').value = s.layout;
   document.getElementById('bg').value = s.bg;
   document.getElementById('frame').value = s.frame;
+  document.getElementById('style_mode').value = s.style_mode || 'gradient';
   draw();
   showToast(currentLang === 'en' ? 'Design restored' : 'طرح بازگردانی شد');
 }
@@ -1829,7 +2080,8 @@ const I18N = {
     lblTracking: 'Letter Spacing (Tracking)',
     sec2Title: 'Icon, Color Palette & Layout',
     lblIcon: 'Primary Vector Icon',
-    lblPal: 'Color Palette & Gradient',
+    lblPal: 'Color Palette',
+    lblStyle: 'Design Style',
     lblLayout: 'Logo Composition (Layout)',
     lblBg: 'Background Style',
     chkNobg: 'Logo Only — Remove Background (Transparent SVG & PNG)',
@@ -1869,7 +2121,8 @@ const I18N = {
     lblTracking: 'فاصله بین حروف (Tracking)',
     sec2Title: 'آیکون، پالت رنگ و چیدمان',
     lblIcon: 'نماد و آیکون اصلی',
-    lblPal: 'پالت رنگی و گرادیان',
+    lblPal: 'پالت رنگی',
+    lblStyle: 'سبک طراحی',
     lblLayout: 'چیدمان لوگو (Layout)',
     lblBg: 'نوع پس‌زمینه',
     chkNobg: 'فقط لوگو — حذف کامل پس‌زمینه (خروجی شفاف / بدون پس‌زمینه)',
@@ -1917,6 +2170,7 @@ function toggleLang() {
   document.getElementById('ui-sec2-title').textContent = t.sec2Title;
   document.getElementById('ui-lbl-icon').textContent = t.lblIcon;
   document.getElementById('ui-lbl-pal').textContent = t.lblPal;
+  document.getElementById('ui-lbl-style').textContent = t.lblStyle;
   document.getElementById('ui-lbl-layout').textContent = t.lblLayout;
   document.getElementById('ui-lbl-bg').textContent = t.lblBg;
   document.getElementById('ui-chk-nobg').textContent = t.chkNobg;
